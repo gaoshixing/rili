@@ -23,13 +23,16 @@
             </div>
             <div class="center" v-if='item.reason.length'>
                 <div class="aro">
+                    <div class="hideDiv">
+                        <p>{{item.reason}}</p>
+                    </div>
                     <div class="aaa">
                         <p class="centerContent" v-if="arr[index]">
                             <Tooltip placement="top">
                                 <p class="more">{{item.reason}}</p >
-                            <div slot="content">
-                                {{item.reason}}
-                            </div>
+                                <div slot="content">
+                                    {{item.reason}}
+                                </div>
                             </Tooltip>
                         </p>
                         <p v-else class="centerContent">{{item.reason}}</p>
@@ -56,8 +59,8 @@
                     {name: '我是谁', text: '通过', status: 'agree', reason: 'w家家好大ssssssssssssssssss家好大好lhok你FSLKH大家大家大家大家大家大家大家大家大家大家大家大家大家大家大家好家好好大家好大家好好好好大家好大家大家好好大家好大家好大家好大'},
                     {name: '我是谁', text: '驳回', status: 'reject', reason: 'w家家好大ssssssssssssssssss家好大好lhok你FSLKH大家大家大家大家大家大家大家大家大家大家大家大家大家大家大家大家大家好家好好大家好大家家大家大家大家大家大'},
                     {name: '我是谁', text: '待审核', status: 'waiting', reason: 'w家家好大ssssssssssssssssss家好大好lhok你FSLKH大家大家大家大家大家大家大家大家大家大家大家大家大家大家大家大家好家好好大家好大家家大家大家大家大家大家大'},
-                    {name: '我是谁', text: '通过', status: 'agree', reason: 'w家家好大ssssssssssssssssss家好大好lhok你FSLKH大家大家大家家大家大家大家大家大家大家大家大家大家大家大家大家大家好家好好大家好大家大家大家大家大家大家大'},
-                    {name: '我是谁', text: '通过', status: 'agree', reason: 'w家家好大ssssssssssssssssss家好大好lhok你FSLKH大家大家大家大家大家大家大家大家大家大家大家大家大家大家大家大家大家好家好好大家好大家家大家大家大家大家大'},
+                    {name: '我是谁', text: '通过', status: 'agree', reason: 'w家家好好好大家好大家大家大家大家大家大家大'},
+                    {name: '我是谁', text: '通过', status: 'agree', reason: 'w家家好好好大家好大家家大家大家大家大家大'},
                 ]
             }
         },
@@ -78,18 +81,16 @@
 
             wResize() {
                 let allAro = this.$el.querySelectorAll('.aro')
-                let allCenterContent = this.$el.querySelectorAll('.aaa')
+                let allCenterContent = this.$el.querySelectorAll('.hideDiv')
                 for(let i = 0; i < allAro.length; i++) {
-                    console.log(allAro[i].clientHeight, allCenterContent[i].clientHeight)
-                    if(allAro[i].clientHeight < allCenterContent[i].clientHeight) {
-                        this.$set(this.arr, i, i + 1)
+                    console.log(allCenterContent[i].clientHeight)
+                    if(allCenterContent[i].clientHeight > 65) {
+                        this.$set(this.arr, i, i+1)
                     }else {
                         this.$set(this.arr, i, 0)
                     }
                 }
-                console.log(this.arr)
             }
-
         }
     }
 </script>
@@ -149,17 +150,19 @@
             .center {
                 width: 40%;
                 padding: 12px 55px;
-                overflow: hidden;
-                .aro {
-                    height: 3em;
-                    overflow: hidden;
+                .hideDiv {
+                    padding: 12px 55px;
+                    width: 40%;
+                    position:absolute;
+                    left: 0;
+                    top: 0;
+                    visibility: hidden;
                 }
                 .centerContent {
                     
                 }
                 p {
                     line-height: 1.1em;
-                    overflow: hidden;
                 }
                 .more {
                     overflow:hidden; 
@@ -174,10 +177,6 @@
                 text-align: center;
                 line-height: 61px;
             }
-            .ivu-tooltip {
-                height: 3em;
-            }
-
         }
     }
 </style>
