@@ -40,5 +40,20 @@ export default new Router({
 						require(['../components/views/connectList'], resolve)
 					}
 				},
+				{
+					path: '/connectCheck',
+					name: 'connectCheck',
+					component: (resolve) => {
+						require(['../components/views/connectCheck'], resolve)
+					}
+				},
+				{
+					path: '/connectCheckDetail',
+					name: 'connectCheckDetail',
+					component: (resolve) => {
+						require(['../components/views/connectCheck/connectCheckDetail'], resolve)
+					}
+				},
+				
 	]
 })

@@ -4,6 +4,7 @@
         <button @click="go('case')">case</button>
         <button @click="go('myStudents')">myStudents</button>
         <button @click="go('connectList')">connectList</button>
+        <button @click="go('connectCheck')">connectCheck</button>
         <car-header
         :year='year'
          :month="month"
