@@ -5,11 +5,18 @@ Vue.use(Router)
 
 export default new Router({
 	routes: [
-				{
+				/* {
 					path: '/',
 					name: 'index',
 					component: (resolve) => {
 						require(['../components/views/todoList/index'], resolve)
+					}
+				}, */
+				{
+					path: '/',
+					name: 'leaderAdd',
+					component: (resolve) => {
+						require(['../components/views/leader/leaderAdd'], resolve)
 					}
 				},
 				{
@@ -17,6 +24,13 @@ export default new Router({
 					name: 'tag',
 					component: (resolve) => {
 						require(['../components/views/list/tag'], resolve)
+					}
+				},
+				{
+					path: '/leaderIndex',
+					name: 'leaderIndex',
+					component: (resolve) => {
+						require(['../components/views/leader/leaderIndex'], resolve)
 					}
 				},
 				{
