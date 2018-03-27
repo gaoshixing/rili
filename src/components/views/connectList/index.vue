@@ -26,12 +26,12 @@
                     <div class="hideDiv">
                         <p>{{item.reason}}</p>
                     </div>
-                    <div class="aaa">
+                    <div>
                         <p class="centerContent" v-if="arr[index]">
                             <Tooltip placement="top">
                                 <p class="more">{{item.reason}}</p >
                                 <div slot="content">
-                                    {{item.reason}}
+                                    <p>{{item.reason}}</p>
                                 </div>
                             </Tooltip>
                         </p>
@@ -83,7 +83,6 @@
                 let allAro = this.$el.querySelectorAll('.aro')
                 let allCenterContent = this.$el.querySelectorAll('.hideDiv')
                 for(let i = 0; i < allAro.length; i++) {
-                    console.log(allCenterContent[i].clientHeight)
                     if(allCenterContent[i].clientHeight > 65) {
                         this.$set(this.arr, i, i+1)
                     }else {
@@ -95,7 +94,7 @@
     }
 </script>
 
-<style lang = 'less'>
+<style lang = 'less'> 
     .connectListGsx {
         .connect {
             overflow: hidden;
@@ -158,8 +157,11 @@
                     top: 0;
                     visibility: hidden;
                 }
+                
                 .centerContent {
-                    
+                    .ivu-tooltip-inner {
+                        white-space: normal;
+                    } 
                 }
                 p {
                     line-height: 1.1em;
@@ -169,7 +171,8 @@
                     text-overflow:ellipsis;
                     display:-webkit-box; 
                     -webkit-box-orient:vertical;
-                    -webkit-line-clamp:3;  
+                    -webkit-line-clamp:3;
+                    cursor: pointer; 
                 }
             }
             .right {
